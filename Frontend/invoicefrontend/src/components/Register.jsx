@@ -28,7 +28,7 @@ export default function Register() {
     const userDetail = { name, email, password, mobile };
     try {
       const res = await axios.post(
-        "http://localhost:5000/register",
+        "https://invoiceease-2.onrender.com/register",
         userDetail,
         {
           withCredentials: true,

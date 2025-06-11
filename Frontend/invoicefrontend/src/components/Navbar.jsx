@@ -39,7 +39,7 @@ useEffect(() => {
         );
       }
       const result = await axios.post(
-        "http://localhost:5000/api/protected/logout",
+        "https://invoiceease-2.onrender.com/api/protected/logout",
         {},
         {
           withCredentials: true,

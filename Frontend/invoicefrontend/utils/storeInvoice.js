@@ -15,7 +15,7 @@ const storeInvoice = async (dataStoringInvoice) => {
     const bodyWithEmail = { ...dataStoringInvoice, authorEmail };
     console.log(bodyWithEmail)
     const response = await axios.post(
-      'http://localhost:5000/api/protected/storeinvoice',
+      'https://invoiceease-2.onrender.com/api/protected/storeinvoice',
       bodyWithEmail,
       {
         withCredentials: true, // ✅ required for sending cookie
@@ -32,7 +32,7 @@ const storeInvoice = async (dataStoringInvoice) => {
     const encodedEmail = encodeURIComponent(authorEmail);
 
     const updateOwnerRecord = await axios.patch(
-      `http://localhost:5000/api/protected/updateinvoicearray/${encodedEmail}`,
+      `https://invoiceease-2.onrender.com/api/protected/updateinvoicearray/${encodedEmail}`,
       { invoiceId },
       {
         withCredentials: true, // ✅ include cookie in PATCH too

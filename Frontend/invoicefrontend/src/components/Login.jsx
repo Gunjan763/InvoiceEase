@@ -24,7 +24,7 @@ export default function Login() {
 
     try {
       const response = await axios.post(
-        "http://localhost:5000/login",
+        "https://invoiceease-2.onrender.com/login",
         { email, password },
         { withCredentials: true }
       );
