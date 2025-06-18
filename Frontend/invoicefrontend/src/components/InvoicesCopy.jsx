@@ -141,7 +141,7 @@ const Invoices = () => {
         const authorEmail = userdata?.email;
         const encodedEmail = encodeURIComponent(authorEmail);
         const response = await axios.post(
-          `http://localhost:5000/api/protected/getinvoicearray/${encodedEmail}`,
+          `https://invoiceease-2.onrender.com/api/protected/getinvoicearray/${encodedEmail}`,
           {},
           {
             withCredentials: true,

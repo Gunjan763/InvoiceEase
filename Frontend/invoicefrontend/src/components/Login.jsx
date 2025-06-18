@@ -32,7 +32,7 @@ export default function Login() {
 
     try {
       const response = await axios.post(
-        "http://localhost:5000/login",
+        "https://invoiceease-2.onrender.com/login",
         { email, password },
         { withCredentials: true }
       );
@@ -91,7 +91,7 @@ export default function Login() {
     }
 
     try {
-      const response = await axios.post("http://localhost:5000/send-otp", { email });
+      const response = await axios.post("https://invoiceease-2.onrender.com/send-otp", { email });
       setMailOtp(String(response.data.data));
       setShowForgotOverlay(true);
       setError("");
@@ -144,7 +144,7 @@ export default function Login() {
     }
 
     try {
-      await axios.post("http://localhost:5000/reset-password", {
+      await axios.post("https://invoiceease-2.onrender.com/reset-password", {
         email,
         newPassword,
       });

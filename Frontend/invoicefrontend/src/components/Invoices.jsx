@@ -128,7 +128,7 @@ const Invoices = () => {
         const authorEmail = userdata?.email;
         const encodedEmail = encodeURIComponent(authorEmail);
         const response = await axios.post(
-          `http://localhost:5000/api/protected/getinvoicearray/${encodedEmail}`,
+          `https://invoiceease-2.onrender.com/api/protected/getinvoicearray/${encodedEmail}`,
           {},
           { withCredentials: true, timeout: 10000 }
         );
@@ -173,7 +173,7 @@ const Invoices = () => {
       console.log(invoiceId);
       console.log(encodedEmail);
       await axios.delete(
-        `http://localhost:5000/api/protected/deleteinvoice/${invoiceId}`,
+        `https://invoiceease-2.onrender.com/api/protected/deleteinvoice/${invoiceId}`,
         {
           data: { authorEmail },
           withCredentials: true,
