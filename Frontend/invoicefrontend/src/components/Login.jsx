@@ -31,11 +31,15 @@ export default function Login() {
     }
 
     try {
-      const response = await axios.post(
-        "https://invoiceease-2.onrender.com/login",
-        { email, password },
-        { withCredentials: true }
-      );
+    const response = await axios.post(
+  "https://invoiceease-2.onrender.com/login",
+  {
+    email: email.trim().toLowerCase(),
+    password
+  },
+  { withCredentials: true }
+);
+
       sessionStorage.setItem("user data", JSON.stringify({ email }));
       login(email);
       navigate("/invoices");
@@ -91,7 +95,7 @@ export default function Login() {
     }
 
     try {
-      const response = await axios.post("https://invoiceease-2.onrender.com/send-otp", { email });
+      const response = await axios.post("http://invoiceease-2.onrender.com/send-otp", { email });
       setMailOtp(String(response.data.data));
       setShowForgotOverlay(true);
       setError("");
@@ -144,7 +148,7 @@ export default function Login() {
     }
 
     try {
-      await axios.post("https://invoiceease-2.onrender.com/reset-password", {
+      await axios.post("http://invoiceease-2.onrender.com/reset-password", {
         email,
         newPassword,
       });

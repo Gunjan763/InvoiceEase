@@ -8,6 +8,7 @@ const login = async (req, res) => {
     let db = await getDB();
     let collection = db.collection('register_users');
     let result = await collection.findOne({ email });
+console.log("Login attempt with:", email, password);
 
     if (!result) {
       console.log('User not found!');
@@ -37,7 +38,7 @@ const login = async (req, res) => {
       //through these our cookies are only modifiable through backend and can only be accessed not modified in frontend
       httpOnly: true,
       secure: true,
-      sameSite: 'Lax',
+      sameSite: 'none',
     }
     return res.status(200)
       .cookie("accessToken", token, options)
@@ -47,6 +48,7 @@ const login = async (req, res) => {
         userId: result._id,
         token
       });
+      
   } catch (error) {
     console.log('Error occurred while logging in user:', error);
     res.status(500).send({ status: 500, message: 'Login failed', error: error.message });
@@ -123,7 +125,7 @@ const registerUser = async (req, res) => {
       //through these our cookies are only modifiable through backend and can only be accessed not modified in frontend
       httpOnly: true,
       secure: true,
-      sameSite: 'Lax',
+      sameSite: 'none',
     }
     return res.status(201)
       .cookie("accessToken", token, options)

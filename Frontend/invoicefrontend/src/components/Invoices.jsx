@@ -130,7 +130,7 @@ const Invoices = () => {
         const response = await axios.post(
           `https://invoiceease-2.onrender.com/api/protected/getinvoicearray/${encodedEmail}`,
           {},
-          { withCredentials: true, timeout: 10000 }
+          { withCredentials: true, timeout: 2000 }
         );
 
         if (response.data && Array.isArray(response.data.invoices)) {
